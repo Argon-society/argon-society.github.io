@@ -8,14 +8,17 @@
         <script src="script.js"></script>
     </head>
     <body>  
-        <iframe src="menu.html" title="menu" class ="menu">
-            
-        </iframe>
+        <div id = "menu"></div>
         <div class="mainDiv">
             <h2>新着情報</h2>
             <ul id = "news"></ul>
         </div>
-        <br />
-        <button onclick="buttonClicked()">Click me</button>
+        <script>
+  fetch('/menu.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('menu').innerHTML = html;
+    });
+        </script>
     </body>
 </html>
