@@ -14,7 +14,7 @@ fetch('data.json')
     // 一つ一つのニュースをリスト表示する
     topNews.forEach(item => {  // ⑥ 各ニュースについて繰り返す
       const li = document.createElement('li'); // 新しい<li>要素を作る
-      li.innerHTML = `<a href="${item.url}" target="_blank">${item.title} (${item.date})</a>`; // ⑦ HTMLリンク形式にする
+      li.innerHTML = `<a href="${item.url}" target="self">${item.title} (${item.date})</a>`; // ⑦ HTMLリンク形式にする
       list.appendChild(li);  // ⑧ 作った<li>をHTMLに追加する
     });
   })
