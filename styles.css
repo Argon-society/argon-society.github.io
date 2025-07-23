@@ -1,0 +1,22 @@
+.title {
+    color: green;
+}
+iframe.menu {
+    width: 100%;
+    height: 180px;
+    border: none
+}
+.memu{
+    display: flex;
+    justify-content:space-around;
+}
+a.menu{
+    color: aqua
+    
+}
+
+.mainDiv{
+    display: grid;
+    place-items:center;
+    
+}
