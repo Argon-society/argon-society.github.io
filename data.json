@@ -1,15 +1,14 @@
 [
     {
-        "title": "サイト内容の更新を行いました",
-        "date": "2025-07-23",
-        "tags": "運営",
-        "url": "news/news2.html"
-    },
-    {
         "title": "アルゴン協会の公式サイトが制作されました",
         "date": "2025-07-23",
         "tags": "運営",
-        "url": "news/news1.html"
+        "url": "/news/news1.html"
+    },
+    {
+        "title": "ヘッダーをスマホ等に対応させました",
+        "date": "2025-07-26",
+        "tags": "運営",
+        "url": "/news/news2.html"
     }
-
 ]
