@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>アルゴン研究所:トップ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles.css" />
+        <script src="/JS/script.js"></script>
+    </head>
+    <body>  
+        <div id = "menu"></div>
+        <div class="mainDiv">
+            <h2>アルゴン研究所</h2>
+            <p>
+                工事中！
+            <a></a>
+            
+            </p>
+
+        </div>
+        <script>
+  fetch('/menu.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('menu').innerHTML = html;
+    });
+        </script>
+    </body>
+</html>
