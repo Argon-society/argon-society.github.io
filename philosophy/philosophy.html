@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>思想信条:理念と目標</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles.css" />
+        <script src="/JS/script.js"></script>
+    </head>
+    <body>  
+        <div id = "menu"></div>
+        <div class="mainDiv">
+            <h2>理念</h2>
+            <h3>複雑多岐の先の真理を追究します</h3>
+            <p>多様な分野において初学者としての初心を忘れずに、かつ岐路亡羊を恐れずに新たな知見の源流を求め続けます。</p>
+            <h3>現実に生きる人々の創意工夫を尊びます</h3>
+            <p>客観的真理と進歩へ向けて思惟を重ねる同志を称賛し、その存在を常に認めます。</p>
+            <h3>世界の最小単位を思索し続けます</h3>
+            <p>諸存在の要素と構造を定義すべく、その多元性を探究します。</p>
+            <h2>活動と目標</h2>
+            <ul>
+            <li>多元諸主義およびその関連諸観念の普及と理解を促進します</li>
+            <li>至高の故郷岡山の発展に寄与します</li>
+            <li>"理系"と"文系"の垣根を超えんとする人々を扶翼します</li>
+            <li>最高の元素"アルゴンAr"の素晴らしさを広報します</li>
+            <li>一意専心の単線的路線を牽制します</li>
+            <li>公益に資する知識の循環を推進します</li>
+            </ul>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <script>
+  fetch('/menu.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('menu').innerHTML = html;
+    });
+        </script>
+    </body>
+</html>
