@@ -9,6 +9,7 @@ iframe.menu {
 .memu{
     display: flex;
     justify-content:space-around;
+    
 }
 a.menu{
     color: aqua
@@ -18,5 +19,11 @@ a.menu{
 .mainDiv{
     display: grid;
     place-items:center;
-    
+    width: 95%;
+    margin: 0 auto;
+}
+
+.mainDiv h2{
+    padding: 1px 2em;
+    background-color: #e7e7e7;
 }
