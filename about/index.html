@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>アルゴン協会:協会情報</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles.css" />
+        <script src="/JS/script.js"></script>
+    </head>
+    <body>  
+        <div id = "menu"></div>
+        <div class="mainDiv">
+            <h2>協会情報</h2>
+            アルゴン協会はアルゴンによって設立された個人サークルです。<br>本協会はアルゴンの創作活動等の主体となり、その公式Webサイトである本サイトは協会の情報集積地となります。
+            <br>アルゴン協会は理念に基づく創作活動等によって社会に参画します。
+            <h2>思想信条</h2>
+            <p>
+                <a href="/philosophy/philosofy.html">理念と目標</a>
+                
+            </p>
+            <h2><a href="/Institute/index.html">アルゴン研究所</a></h2>
+            <h2>リンク集</h2>
+            <a>工事中</a>
+            <h2><a href="/philosofy.html">アルゴン倉庫</a></h2>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <script>
+  fetch('/menu.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('menu').innerHTML = html;
+    });
+        </script>
+    </body>
+</html>
