@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/argon_Institute_Header.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import Banners from "../../components/Banners.astro";
+---
+
+<BaseLayout title="アルゴン研究所｜アルゴン協会">
+    <Header />
+    <Navigation />
+    <main>
+        <article>
+            <h2></h2>
+            <p></p>
+        </article>
+
+        <section class="flex-container">
+            <div class="flex-item">
+                <h3>岡山・吉備文化</h3>
+                <p>岡山文学</p>
+            </div>
+            <div class="flex-item">
+                <h3>政策</h3>
+                <p>農政</p>
+            </div>
+        </section>
+
+        <section>
+            <div>
+                <h3>哲学</h3>
+                <p>価値多元主義 / 多元的民主制 / 文化多元主義</p>
+            </div>
+            <div>
+                <h3>化学</h3>
+                <p>Argon基礎 / Argon応用</p>
+            </div>
+        </section>
+        <Banners />
+    </main>
+    <Footer />
+</BaseLayout>

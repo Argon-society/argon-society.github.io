@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import Banners from "../components/Banners.astro";
+---
+
+<BaseLayout title="理念と目的｜アルゴン協会">
+    <Header />
+    <Navigation />
+    <main>
+        <article>
+            <h1>理念</h1>
+            <br />
+            <h3>【渉猟】</h3>
+            <p><b>複雑多岐の先の真理を追究します</b></p>
+            <p>
+                多様な分野において初学者としての初心を忘れずに、かつ岐路亡羊を恐れずに新たな知見の源流を求め続けます。
+            </p>
+            <h3>【友愛】</h3>
+            <p><b>現実に生きる人々の存在と尊厳を尊びます</b></p>
+            <p>
+                客観的真理と進歩へ向けて思惟を重ねる同志を称賛し、その存在を常に認めます。
+            </p>
+            <h3>【観照】</h3>
+            <p><b>世界の最小単位を思索し続けます</b></p>
+            <p>諸存在の要素と構造を定義すべく、その多元性を探究します。</p>
+            <br /><br />
+
+            <h1>活動の目的</h1>
+            <ul>
+                <li>多元諸主義およびその関連諸観念の普及と理解を促進します</li>
+                <li>至高の故郷岡山の発展に寄与します</li>
+                <li>"理系"と"文系"の垣根を超えんとする人々を扶翼します</li>
+                <li>最高の元素"アルゴンAr"の素晴らしさを広報します</li>
+                <li>一意専心の単線的路線を牽制します</li>
+                <li>公益に資する知識の循環を推進します</li>
+            </ul>
+        </article>
+
+        <section></section>
+        <Banners />
+    </main>
+    <Footer />
+</BaseLayout>
+
+<style>
+    article {
+        text-align: center;
+    }
+    article ul {
+        display: inline-block;
+        text-align: left;
+    }
+    h3 {
+        border-left: none;
+        padding-left: 0;
+    }
+</style>

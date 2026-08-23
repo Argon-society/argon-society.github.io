@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import Banners from "../../components/Banners.astro";
+---
+
+<BaseLayout title="活動総合｜アルゴン協会">
+	<Header />
+	<Navigation />
+	<main>
+		<article>
+			<h1>活動総合</h1>
+			<p>
+				アルゴン協会は、協会が掲げる理念と目的並びに指針を達成するために活動を行います。
+			</p>
+		</article>
+
+		<section class="flex-container">
+			<div class="flex-item">
+				<h2><a href="" >創作活動</a></h2>
+				<p>
+                    小説執筆、ゲーム制作など
+				</p>
+			</div>
+			<div class="flex-item">
+				<h2><a href="">政治活動</a></h2>
+				<p>
+                    調査活動、主権者意識醸成活動など
+				</p>
+            </div>
+		</section>
+		<section class="flex-container">
+			<div class="flex-item">
+				<h2>地域活動</h2>
+				<p>
+                    岡山・吉備の文化研究活動など
+                </p>
+			</div>
+			<div class="flex-item">
+				<h2>社会活動</h2>
+				<p>
+                    多元的社会活動、差別解消活動など
+				</p>
+			</div>
+			<div class="flex-item">
+				<h2>広報活動</h2>
+				<p>
+                    協会・アルゴン元素・諸活動に関する広報
+				</p>
+			</div>
+		</section>
+		<Banners />
+	</main>
+	<Footer />
+</BaseLayout>
+
+<style>
+	a {
+		color: inherit;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+</style>

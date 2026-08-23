@@ -1,0 +1,32 @@
+---
+
+---
+
+<nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul class="menu" id="menu">
+        <li><a href="/">トップ</a></li>
+        <li><a href="/philosophy">理念と目的</a></li>
+        <li><a href="/actions/">活動総合</a></li>
+        <li><a href="/about">協会情報</a></li>
+        <li><a href="/argon_Institute/">アルゴン研究所</a></li>
+        <li><a href="/links/">リンク</a></li>
+        <li><a href="/contact/">お問い合わせ</a></li>
+    </ul>
+</nav>
+
+<script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+
+    if (menuToggle && menu) {
+        menuToggle.addEventListener("click", () => {
+            menuToggle.classList.toggle("active");
+            menu.classList.toggle("active");
+        });
+    }
+</script>

@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import Banners from "../components/Banners.astro";
+---
+
+<BaseLayout title="アルゴン協会">
+	<Header />
+	<Navigation />
+	<main>
+		<article>
+			<h2>アルゴン協会</h2>
+			<p>
+				多元的民主政治へ接近する「過程」としてのポリアーキーを実現する「作法」としての多元諸論を通じて、日本と岡山に進歩を齎します。
+			</p>
+		</article>
+
+		<section class="flex-container">
+			<div class="flex-item">
+				<h3>機関紙【懶惰】</h3>
+				<ul>
+					<li>2026年4月号 - 東瀬戸内経済圏の未来</li>
+				</ul>
+			</div>
+			<div class="flex-item">
+				<h3>トピックス</h3>
+				<ul>
+					<li>2026年4月号 - 岡山県</li>
+				</ul>
+			</div>
+			<div>
+				<h3>最近の更新</h3>
+				<ul>
+					<li>2026/02/22 - サイトをAstroへ移行しました。</li>
+					<li>2026/02/22 - サイトを制作しました。</li>
+				</ul>
+			</div>
+		</section>
+		<Banners />
+	</main>
+	<Footer />
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import Banners from "../../components/Banners.astro";
+---
+
+<BaseLayout title="役員一覧 | アルゴン協会">
+    <Header />
+    <Navigation />
+    <main>
+        <article>
+            <h1>役員一覧</h1>
+            <p>アルゴン協会の役員一覧ページです。</p>
+        </article>
+        <section></section>
+        <Banners />
+    </main>
+    <Footer />
+</BaseLayout>
+
+<style>
+    main {
+        padding: 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    h1 {
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 0.5rem;
+    }
+</style>

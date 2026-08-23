@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import Banners from "../components/Banners.astro";
+---
+
+<BaseLayout title="協会情報｜アルゴン協会">
+	<Header />
+	<Navigation />
+	<main>
+		<article>
+			<h1>協会情報</h1>
+			<p>
+				アルゴン協会は「渉猟」「友愛」「観照」を基本理念とし、岡山の発展と、多元諸主義の普及と理解を目指して活動を行います。
+			</p>
+		</article>
+
+		<section class="flex-container">
+			<div class="flex-item">
+				<h2><a href="/actions/">活動総合</a></h2>
+				<p>創作活動 / 地域活動 / 社会活動 / 政治活動</p>
+			</div>
+			<div class="flex-item">
+				<h2><a href="/philosophy">理念と目的</a></h2>
+			</div>
+		</section>
+		<section class="flex-container">
+			<div class="flex-item">
+				<h2>定款・規則</h2>
+				<p>定款</p>
+			</div>
+			<div class="flex-item">
+				<h2>機関</h2>
+				<p>
+					<a href="/Organ/member">役員一覧</a> /
+					<a href="/Organ/rijikai">理事会</a> /
+					<a href="/argon_Institute/">アルゴン研究所</a>
+				</p>
+			</div>
+		</section>
+		<Banners />
+	</main>
+	<Footer />
+</BaseLayout>
+
+<style>
+	a {
+		color: inherit;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+</style>
