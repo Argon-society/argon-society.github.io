@@ -1,95 +1,207 @@
 ---
-const banners = [
+// 昔の個人サイト・同盟サイトで見られた同盟バナー風コンポーネント
+// 最小限のHTML要素で構成し、CSS aspect-ratioにより各種縦横比に柔軟に対応します
+
+export interface BannerItem {
+    href: string;
+    label: string;
+    sub?: string;      // 左帯のサブテキスト (例: "同盟", "NOTE", "X", "WIKI")
+    img?: string;      // 画像バナーURL (指定時はimg要素を表示)
+    aspect?: string;   // 縦横比 (例: "88/31", "200/40", "120/60", "1/1" など。デフォルト: "88/31")
+    height?: number | string; // 基準の高さ (デフォルト: 31px)
+    bg?: string;       // メイン背景色
+    subBg?: string;    // サブ帯背景色
+    color?: string;    // テキスト色
+}
+
+interface Props {
+    items?: BannerItem[];
+}
+
+const { items } = Astro.props;
+
+const defaultBanners: BannerItem[] = [
     {
         href: "https://note.com/argon_society",
         label: "公式Note",
-        color: "#225588",
-        img: "",
+        sub: "NOTE",
+        bg: "#20466e",
+        subBg: "#11263d",
+        aspect: "88/31",
     },
-    { href: "https://x.com/argon_society", label: "公式X", color: "#555555" },
+    {
+        href: "https://x.com/argon_society",
+        label: "公式X",
+        sub: "X",
+        bg: "#2b2b2b",
+        subBg: "#141414",
+        aspect: "88/31",
+    },
     {
         href: "https://wikiwiki.jp/okayama-adss/",
-        label: "岡山県諸議会情報",
-        color: "#228855",
+        label: "諸議会情報",
+        sub: "WIKI",
+        bg: "#1b613b",
+        subBg: "#0c331e",
+        aspect: "88/31",
     },
-    { href: "#", label: "工事中", color: "#882255" },
-    { href: "#", label: "工事中", color: "#885522" },
-    { href: "#", label: "工事中", color: "#552288" },
+    {
+        href: "#",
+        label: "岡山同盟",
+        sub: "同盟",
+        bg: "#752249",
+        subBg: "#3d1025",
+        aspect: "88/31",
+    },
+    {
+        href: "#",
+        label: "準備中",
+        sub: "SOON",
+        bg: "#694717",
+        subBg: "#38250a",
+        aspect: "88/31",
+    },
+    {
+        href: "#",
+        label: "アルゴン同盟",
+        sub: "UNION",
+        bg: "#41246b",
+        subBg: "#22113b",
+        aspect: "88/31",
+    },
 ];
+
+const bannerList = items ?? defaultBanners;
 ---
 
-<div class="banner-area">
-    <div class="banner-container">
-        {
-            banners.map((banner) => (
-                <a
-                    href={banner.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="banner-link"
-                >
-                    <div
-                        class="pixel-banner"
-                        style={`background-color: ${banner.color}`}
-                    >
-                        <span class="banner-text">{banner.label}</span>
-                    </div>
-                </a>
-            ))
-        }
-    </div>
-</div>
+<aside class="banner-rack" aria-label="同盟バナーリンク">
+    {
+        bannerList.map((banner) => (
+            <a
+                href={banner.href}
+                target={banner.href.startsWith("http") ? "_blank" : undefined}
+                rel={banner.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                class="alliance-banner"
+                style={{
+                    "--aspect": banner.aspect || "88/31",
+                    "--height": typeof banner.height === "number" ? `${banner.height}px` : (banner.height || "31px"),
+                    "--bg": banner.bg || "#333333",
+                    "--sub-bg": banner.subBg || "#191919",
+                    "--text-color": banner.color || "#ffffff",
+                }}
+                title={banner.label}
+            >
+                {banner.img ? (
+                    <img src={banner.img} alt={banner.label} class="banner-img" loading="lazy" />
+                ) : (
+                    <>
+                        {banner.sub && <span class="banner-sub">{banner.sub}</span>}
+                        <span class="banner-main">{banner.label}</span>
+                    </>
+                )}
+            </a>
+        ))
+    }
+</aside>
 
 <style>
-    .banner-area {
-        margin-top: 2rem;
+    .banner-rack {
         display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
         justify-content: flex-end;
-        border-top: 1px dotted #ccc;
+        align-items: center;
+        margin-top: 2rem;
         padding-top: 1.5rem;
+        border-top: 1px dotted #cccccc;
     }
-    .banner-container {
-        display: grid;
-        grid-template-columns: repeat(2, 88px);
-        gap: 8px;
-        justify-content: flex-end;
-    }
-    .banner-link {
+
+    /* 最小限の要素でクラシックな同盟バナーの質感を表現 */
+    .alliance-banner {
+        /* 各種縦横比に対応 (aspect-ratio) */
+        aspect-ratio: var(--aspect);
+        height: var(--height);
+        max-width: 100%;
+        display: inline-flex;
+        align-items: center;
         text-decoration: none;
-        display: block;
-        line-height: 0;
-    }
-    .pixel-banner {
-        width: 88px;
-        height: 31px;
-        border: 1px solid #000;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: relative;
+        background-color: var(--bg);
+        /* レトロな微細走査線テクスチャ */
+        background-image: repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.22) 0px,
+            rgba(0, 0, 0, 0.22) 1px,
+            transparent 1px,
+            transparent 2px
+        );
+        /* 昔のWeb特有の1pxベベル立体ボーダー */
+        border: 1px solid #111111;
         box-shadow:
-            inset 1px 1px rgba(255, 255, 255, 0.4),
-            inset -1px -1px rgba(0, 0, 0, 0.4);
+            inset 1px 1px 0 rgba(255, 255, 255, 0.65),
+            inset -1px -1px 0 rgba(0, 0, 0, 0.7);
+        color: var(--text-color);
+        font-family: "MS Gothic", "Osaka-mono", "Courier New", monospace, sans-serif;
+        cursor: pointer;
+        user-select: none;
+        transition: filter 0.1s;
+    }
+
+    .alliance-banner:hover {
+        filter: brightness(1.2);
+    }
+
+    .alliance-banner:active {
+        /* 押し込みクリック感 */
+        box-shadow:
+            inset 1px 1px 0 rgba(0, 0, 0, 0.8),
+            inset -1px -1px 0 rgba(255, 255, 255, 0.35);
+        transform: translate(1px, 1px);
+    }
+
+    /* 左側の帯（同盟・カテゴリ表示） */
+    .banner-sub {
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.1s;
+        height: 100%;
+        padding: 0 4px;
+        background-color: var(--sub-bg);
+        border-right: 1px solid rgba(0, 0, 0, 0.6);
+        box-shadow: 1px 0 0 rgba(255, 255, 255, 0.25);
+        font-size: 8px;
+        font-weight: bold;
+        letter-spacing: -0.5px;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 0 #000000;
+        white-space: nowrap;
     }
-    .pixel-banner:hover {
-        transform: scale(1.05);
-        filter: brightness(1.1);
-    }
-    .banner-text {
-        font-family: "Courier New", Courier, monospace;
+
+    /* メインラベル */
+    .banner-main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 4px;
         font-size: 10px;
         font-weight: bold;
-        color: #fff;
-        text-shadow: 1px 1px #000;
-        letter-spacing: 0px;
-        text-align: center;
+        letter-spacing: -0.2px;
+        text-shadow: 1px 1px 0 #000000;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
-    .pixel-banner:active {
-        box-shadow:
-            inset 1px 1px rgba(0, 0, 0, 0.6),
-            inset -1px -1px rgba(255, 255, 255, 0.2);
-        transform: scale(0.95);
+
+    /* 画像バナー対応 */
+    .banner-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        image-rendering: pixelated;
     }
 </style>
